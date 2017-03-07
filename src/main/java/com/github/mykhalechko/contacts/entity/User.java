@@ -1,5 +1,7 @@
 package com.github.mykhalechko.contacts.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -17,22 +19,22 @@ public class User {
     private long id;
 
     @Column(name = "username", unique = true)
-    @NotNull
-    @Pattern(regexp = "[A-Za-z]+")
-    @Size(min = 3)
+    @NotEmpty(message = "{user.error.usernameRequired}")
+    @Pattern(regexp = "[A-Za-z]+", message = "{user.error.usernameRegexp}")
+    @Size(min = 3, message="{user.error.usernameLength}")
     private String username;
 
     @Column(name = "password")
-    @NotNull
-    @Size(min = 5)
+    @NotEmpty(message="{user.error.passwordRequired}")
+    @Size(min = 5, message="{user.error.passwordLength}")
     private String password;
 
     @Transient
     private String passwordConfirm;
 
     @Column(name = "fullName")
-    @NotNull
-    @Size(min = 5)
+    @NotEmpty(message="{user.error.fullNameRequired}")
+    @Size(min = 5, message="{user.error.fullNameLength}")
     private String fullName;
 
     @ManyToMany
