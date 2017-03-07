@@ -11,9 +11,9 @@
 <section layout:fragment="content">
     <div class="container">
 
-        <div class="col-md-2">
+        <div class="col-md-3">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="alert alert-danger alert-dismissible text-center"
                  role="alert"
                  th:if="${#fields.hasErrors('${registrationForm.username}')}">
@@ -21,6 +21,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <strong>Некорректное имя пользователя</strong>
+                <br/>
                 <span th:errors="${registrationForm.username}"></span>
             </div>
             <div class="alert alert-danger alert-dismissible text-center"
@@ -30,6 +31,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <strong>Некорректный пароль</strong>
+                <br/>
                 <span th:errors="${registrationForm.password}"></span>
             </div>
             <div class="alert alert-danger alert-dismissible text-center"
@@ -47,6 +49,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <strong>Некорректные ФИО</strong>
+                <br/>
                 <span th:errors="${registrationForm.fullName}"></span>
             </div>
 
@@ -54,7 +57,7 @@
                 <input type="hidden"
                        th:name="${_csrf.parameterName}"
                        th:value="${_csrf.token}"/>
-                <h2 class="form-registration-heading">Создать новый акаунт</h2>
+                <h2 class="form-registration-heading">Регистрация</h2>
 
                 <label for="username" class="sr-only">Имя пользователя</label>
                 <input type="text"
@@ -93,7 +96,7 @@
                 <button type="submit" class="btn btn-lg btn-default  btn-block">Регистрация</button>
             </form>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
         </div>
     </div>
 </section>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="layout">
+
+<head>
+    <title>Вход</title>
+    <link rel="stylesheet" href="/css/login.css" th:src="@{/css/login.css}"/>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+            <div th:if="${logout}" class="alert alert-info" role="alert">Вы успешно вышли</div>
+            <div th:if="${error}" class="alert alert-danger" role="alert">Некорректные имя пользователя или пароль</div>
+            <form method="post" th:action="@{/login}" class="form-signin">
+                <input type="hidden"
+                       th:name="${_csrf.parameterName}"
+                       th:value="${_csrf.token}"/>
+                <h2 class="form-signin-heading">Выполните вход</h2>
+                <label for="username" class="sr-only">Имя пользователя</label>
+                <input type="text"
+                       class="form-control"
+                       id="username"
+                       placeholder="Имя пользователя"
+                       name="username"
+                       th:required="required"/>
+                <label for="password" class="sr-only">Пароль</label>
+                <input type="password"
+                       class="form-control"
+                       id="password"
+                       placeholder="Пароль"
+                       name="password"
+                       th:required="required"/>
+                <button class="btn btn-lg btn-default  btn-block" type="submit">Войти</button>
+                <a class="btn btn-lg btn-default btn-block"
+                   href="/registration" role="button">Создать нового пользователя</a>
+            </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
