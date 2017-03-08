@@ -1,9 +1,10 @@
 package com.github.mykhalechko.contacts.entity;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -17,36 +18,38 @@ public class Contact implements Serializable {
     private long id;
 
     @Column(name = "surname")
-    @NotNull
-    @Size(min = 4)
+    @NotEmpty(message = "{contact.error.surnameRequired}")
+    @Size(min = 4, message = "{contact.error.surnameLength}")
     private String surname;
 
     @Column(name = "name")
-    @NotNull
-    @Size(min = 4)
+    @NotEmpty(message = "{contact.error.nameRequired}")
+    @Size(min = 4, message = "{contact.error.nameLength}")
     private String name;
 
     @Column(name = "patronymic")
-    @NotNull
-    @Size(min = 4)
+    @NotEmpty(message = "{contact.error.patronymicRequired}")
+    @Size(min = 4, message = "{contact.error.patronymicLength}")
     private String patronymic;
 
     // TODO: 07.03.2017 check phone
     @Column(name = "mobilePhone")
-    @NotNull
-    @Size(min = 12)
+    @NotEmpty(message = "{contact.error.mobilePhoneRequired}")
+    @Pattern(regexp = "[0-9]+", message = "{contact.error.mobilePhoneRegexp}")
+    @Size(min = 12, max = 12, message = "{contact.error.mobilePhoneLength}")
     private String mobilePhone;
 
     // TODO: 07.03.2017 check phone
     @Column(name = "homePhone")
-    @Size(min = 12)
+    @Pattern(regexp = "[0-9]+", message = "{contact.error.homePhoneRegexp}")
+    @Size(min = 12, max = 12, message = "{contact.error.homePhoneLength}")
     private String homePhone;
 
     @Column(name = "address")
     private String address;
 
     @Column(name = "email")
-    @Email
+    @Email(message = "{contact.error.email}")
     private String email;
 
     @ManyToOne
