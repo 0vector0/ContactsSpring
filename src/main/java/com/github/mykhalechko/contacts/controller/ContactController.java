@@ -2,7 +2,6 @@ package com.github.mykhalechko.contacts.controller;
 
 
 import com.github.mykhalechko.contacts.entity.Contact;
-
 import com.github.mykhalechko.contacts.service.ContactService;
 import com.github.mykhalechko.contacts.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +70,7 @@ public class ContactController {
     }
 
 
-    @RequestMapping(value = "/saveContact", method = RequestMethod.POST)
+    @RequestMapping(value = "/editContact", method = RequestMethod.POST)
     public String editContact(@ModelAttribute("contact") Contact contact) {
 
         this.contactService.edit(contact);
