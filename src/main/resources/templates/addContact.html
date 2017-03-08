@@ -11,131 +11,120 @@
 <section layout:fragment="content">
     <div class="container">
         <h1>Добавить контакт</h1>
-        <!--th:action="@{/contacts/addContact}"-->
-        <form class="form-horizontal" method="post" id="contactForm" name="contactForm">
+        <form class="form-horizontal" th:object="${contact}" th:action="@{/contacts/addContact}" method="post"
+              id="contactForm" name="contactForm">
             <input type="hidden"
                    th:name="${_csrf.parameterName}"
                    th:value="${_csrf.token}"/>
-            <div class="form-group">
+            <div class="form-group" th:classappend="${#fields.hasErrors('surname')}? has-error">
                 <label for="surname" class="col-sm-2 control-label">Фамилия</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="surname" placeholder="Фамилия" name="surname"
+                    <input type="text"
+                           class="form-control"
+                           th:field="*{surname}"
+                           id="surname"
+                           name="surname"
+                           placeholder="Фамилия"
                            th:required="required"/>
+                    <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Incorrect surname</p>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" th:classappend="${#fields.hasErrors('name')}? has-error">
                 <label for="name" class="col-sm-2 control-label">Имя</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" placeholder="Имя" name="name"
+                    <input type="text"
+                           class="form-control"
+                           th:field="*{name}"
+                           id="name"
+                           placeholder="Имя"
+                           name="name"
                            th:required="required"/>
+                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect name</p>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" th:classappend="${#fields.hasErrors('patronymic')}? has-error">
                 <label for="patronymic" class="col-sm-2 control-label">Отчество</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="patronymic" placeholder="Отчество" name="patronymic"
+                    <input type="text"
+                           class="form-control"
+                           th:field="*{patronymic}"
+                           id="patronymic" placeholder="Отчество" name="patronymic"
                            th:required="required"/>
+                    <p th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}">Incorrect patronymic</p>
                 </div>
             </div>
-            <!--<div class="form-group">-->
-            <!--<label for="mobilePhone" class="col-sm-2 control-label">Телефон мобильный</label>-->
-            <!--<div class="col-sm-10">-->
-
-            <!--<input type="text" class="form-control" id="mobilePhone" placeholder="Телефон мобильный"-->
-            <!--name="mobilePhone"-->
-            <!--maxlength="12"-->
-            <!--th:required="required"/>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-            <!--<label for="homePhone" class="col-sm-2 control-label">Телефон домашний</label>-->
-            <!--<div class="col-sm-10">-->
-
-            <!--<input type="text" class="form-control" id="homePhone" placeholder="Телефон домашний"-->
-            <!--name="homePhone"-->
-            <!--maxlength="12"/>-->
-            <!--</div>-->
-            <!--</div>-->
-            <div class="form-group">
-                <label for="mobilePhoneBody" class="col-sm-2 control-label">Телефон мобильный</label>
+            <div class="form-group" th:classappend="${#fields.hasErrors('mobilePhone')}? has-error">
+                <label for="mobilePhone" class="col-sm-2 control-label">Телефон мобильный</label>
                 <div class="col-sm-10">
-
-                    <div class="input-group" style="max-width: 250px">
-                        <span class="input-group-addon" id="sizing-addon1" style="min-width: 50px">+380 (</span>
-                        <input type="text" class="form-control" id="mobilePhoneCode" name="homePhoneCode"
-                               maxlength="2"
-                               aria-describedby="sizing-addon1" size="1"
-                               placeholder=""
-                               th:required="required"/>
-                        <span class="input-group-addon" id="sizing-addon2" style="min-width: 30px">)</span>
-                        <input type="text" class="form-control" id="mobilePhoneBody" name="homePhoneBody"
-                               maxlength="7" placeholder=""
-                               aria-describedby="sizing-addon2" size="7"
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1">+</span>
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{mobilePhone}"
+                               id="mobilePhone"
+                               name="mobilePhone"
+                               maxlength="12"
+                               aria-describedby="sizing-addon1" size="12"
+                               placeholder="380"
                                th:required="required"/>
                     </div>
+                    <p th:if="${#fields.hasErrors('mobilePhone')}" th:errors="*{mobilePhone}">
+                        Incorrect mobilePhone
+                    </p>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="homePhoneBody" class="col-sm-2 control-label">Телефон домашний</label>
+            <div class="form-group" th:classappend="${#fields.hasErrors('homePhone')}? has-error">
+                <label for="homePhone" class="col-sm-2 control-label">Телефон домашний</label>
                 <div class="col-sm-10">
-                    <div class="input-group" style="max-width: 250px">
-                        <span class="input-group-addon" id="sizing-addon3" style="min-width: 50px">+380 (</span>
-                        <input type="text" class="form-control" id="homePhoneCode" name="homePhoneCode"
-                               maxlength="2"
-                               aria-describedby="sizing-addon3" size="1"
-                               placeholder=""/>
-                        <span class="input-group-addon" id="sizing-addon4" style="min-width: 30px">)</span>
-                        <input type="text" class="form-control" id="homePhoneBody" name="homePhoneBody"
-                               maxlength="7" placeholder=""
-                               aria-describedby="sizing-addon4" size="7"/>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon2">+</span>
+                        <input type="text"
+                               class="form-control"
+                               th:field="*{homePhone}"
+                               id="homePhone"
+                               name="homePhone"
+                               maxlength="12"
+                               aria-describedby="sizing-addon2" size="12"
+                               placeholder="380"/>
                     </div>
+                    <p th:if="${#fields.hasErrors('homePhone')}" th:errors="*{homePhone}">Incorrect homePhone</p>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" th:classappend="${#fields.hasErrors('address')}? has-error">
                 <label for="address" class="col-sm-2 control-label">Адрес</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="address" placeholder="Адрес" name="address" rows="3"
-                              style="resize: none;"></textarea>
+                    <textarea class="form-control"
+                              id="address"
+                              th:field="*{address}"
+                              placeholder="Адрес"
+                              name="address"
+                              rows="3"
+                              style="resize: none;">
+                    </textarea>
+                    <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Incorrect address</p>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" th:classappend="${#fields.hasErrors('email')}? has-error">
                 <label for="email" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"/>
+                    <input type="email"
+                           class="form-control"
+                           th:field="*{email}"
+                           id="email"
+                           name="email"
+                           placeholder="Email"/>
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect email</p>
                 </div>
             </div>
-
-
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class=" btn btn-lg btn-default"
-                            type="submit"
-                            value="submit_now"
-                            onclick="sendContact(); return false;">
-                        Сохранить
+                    <button class=" btn btn-lg btn-default" type="submit">
+                        Добавить
                     </button>
                 </div>
             </div>
         </form>
     </div>
-
-    <script>
-        function sendContact() {
-
-            var formData = new FormData(document.forms.contactForm);
-            var mobilePhone = 380 + document.forms.contactForm.mobilePhoneCode.value
-                + document.forms.contactForm.mobilePhoneBody.value;
-            console.log(mobilePhone);
-            formData.append("mobilePhone", mobilePhone);
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/contacts/addContact");
-            xhr.send(formData);
-            setTimeout(function () {
-                window.location.href = "/contacts";
-            }, 500);
-        }
-    </script>
 </section>
 
 </body>
