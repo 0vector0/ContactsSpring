@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/xhtml"
+      layout:decorator="layout">
+
+<head>
+    <title>Информация о контакте</title>
+</head>
+<body>
+
+<section layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                    <a class="btn btn-default btn-block" th:href="@{'/contacts'}">Назад к списку контактов</a>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <dl class="dl-horizontal">
+                                <dt>Фамилия</dt>
+                                <dd th:text="${{contact.surname}}">Фамилия</dd>
+                                <dt>Имя</dt>
+                                <dd th:text="${{contact.name}}">Имя</dd>
+                                <dt>Отчество</dt>
+                                <dd th:text="${{contact.patronymic}}">Отчество</dd>
+                                <dt>Мобильный телефон</dt>
+                                <dd th:text="${{contact.mobilePhone}}">Мобильный телефон</dd>
+                                <dt>Домашний телефон</dt>
+                                <dd th:text="${{contact.homePhone}}">Домашний телефон</dd>
+                                <dt>Адрес</dt>
+                                <dd th:text="${{contact.address}}">Адрес</dd>
+                                <dt>Email</dt>
+                                <dd th:text="${{contact.email}}">Email</dd>
+                            </dl>
+                            <div class="text-center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <a class="btn btn-default"
+                                       th:href="@{'/contacts/addContact/'}">Добавить новый</a>
+                                    <a class="btn btn-default"
+                                       th:href="@{'/contacts/editContact/' + ${contact.id}}">Редактировать</a>
+                                    <a class="btn btn-default"
+                                       th:href="@{'/contacts/deleteContact/' + ${contact.id}}">Удалить</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

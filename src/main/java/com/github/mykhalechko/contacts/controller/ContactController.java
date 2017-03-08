@@ -81,7 +81,7 @@ public class ContactController {
     public String contactData(@PathVariable("id") long id, Model model) {
         model.addAttribute("contact", this.contactService.findById(id));
 
-        return "contact";
+        return "dataContact";
     }
 
 
