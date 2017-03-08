@@ -39,8 +39,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();
-
-
     }
 
     @Bean
@@ -53,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
 
-//    <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+    //    <artifactId>thymeleaf-extras-springsecurity4</artifactId>
     @Bean
     public SpringSecurityDialect springSecurityDialect() {
         return new SpringSecurityDialect();
