@@ -4,14 +4,14 @@
 
 <head>
     <title>Вход</title>
-    <link rel="stylesheet" href="/css/login.css" th:src="@{/css/login.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
 </head>
 <body>
 <section layout:fragment="content">
     <div class="container">
-        <div class="col-md-2">
+        <div class="col-md-3">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div th:if="${logout}" class="alert alert-info" role="alert">Вы успешно вышли</div>
             <div th:if="${error}" class="alert alert-danger" role="alert">Некорректные имя пользователя или пароль</div>
             <form method="post" th:action="@{/login}" class="form-signin">
@@ -23,6 +23,7 @@
                 <input type="text"
                        class="form-control"
                        id="username"
+                       autofocus="autofocus"
                        placeholder="Имя пользователя"
                        name="username"
                        th:required="required"/>
@@ -38,7 +39,7 @@
                    href="/registration" role="button">Создать нового пользователя</a>
             </form>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
         </div>
     </div>
 </section>
