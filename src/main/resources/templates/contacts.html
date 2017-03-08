@@ -13,7 +13,10 @@
         <div class="panel panel-default">
 
             <div class="panel-body">
-                <a class="btn btn-default" href="#" th:href="@{'/contacts/addContact/'}">Добавить новый контакт</a>
+                <a class="btn btn-default" href="#" th:href="@{'/contacts/addContact/'}">
+                    <span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    Добавить новый контакт
+                </a>
             </div>
             <div class="table-responsive">
                 <table class="table">
@@ -35,11 +38,20 @@
                         <td>
                             <div class="btn-group" role="group" aria-label="...">
                                 <a class="btn btn-default" href="#"
-                                   th:href="@{'/contacts/dataContact/' + ${contact.id}}">Информация</a>
+                                   th:href="@{'/contacts/dataContact/' + ${contact.id}}">
+                                    <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                                    Подробнее
+                                </a>
                                 <a class="btn btn-default" href="#"
-                                   th:href="@{'/contacts/editContact/' + ${contact.id}}">Редактировать</a>
+                                   th:href="@{'/contacts/editContact/' + ${contact.id}}">
+                                    <span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                    Редактировать
+                                </a>
                                 <a class="btn btn-default" href="#"
-                                   th:href="@{'/contacts/deleteContact/' + ${contact.id}}">Удалить</a>
+                                   th:href="@{'/contacts/deleteContact/' + ${contact.id}}">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                    Удалить
+                                </a>
                             </div>
                         </td>
                     </tr>
