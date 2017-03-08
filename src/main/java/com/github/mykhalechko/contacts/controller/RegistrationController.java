@@ -42,7 +42,7 @@ public class RegistrationController {
         userService.save(registrationForm);
         securityService.autologin(registrationForm.getUsername(), registrationForm.getPasswordConfirm());
         model.addAttribute(registrationForm.getUsername(), "name");
-        return "redirect:/";
+        return "redirect:/contacts";
     }
 
 }
