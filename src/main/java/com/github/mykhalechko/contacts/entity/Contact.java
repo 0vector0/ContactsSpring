@@ -128,4 +128,18 @@ public class Contact implements Serializable {
         this.user = user;
     }
 
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id=" + id +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }
