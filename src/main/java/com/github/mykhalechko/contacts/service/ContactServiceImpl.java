@@ -5,9 +5,7 @@ import com.github.mykhalechko.contacts.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ContactServiceImpl implements ContactService {
@@ -45,6 +43,21 @@ public class ContactServiceImpl implements ContactService {
         sortContacts(contacts);
         return contacts;
     }
+
+    @Override
+    public List<Contact> searchContact(String search) {
+
+        Set<Contact> contactSet = new LinkedHashSet<>();
+        contactSet.addAll(contactRepository.findByNameContainingIgnoreCase(search));
+        contactSet.addAll(contactRepository.findBySurnameContainingIgnoreCase(search));
+        contactSet.addAll(contactRepository.findByMobilePhoneContainingIgnoreCase(search));
+        contactSet.addAll(contactRepository.findByHomePhoneContainingIgnoreCase(search));
+
+        List<Contact> contacts = new ArrayList<>(contactSet);
+        sortContacts(contacts);
+        return contacts;
+    }
+
 
     @Override
     public Contact findById(Long id) {

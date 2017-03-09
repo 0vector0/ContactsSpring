@@ -11,4 +11,12 @@ public interface ContactRepository extends JpaRepository<Contact, Long> {
 
     @Query("select p from Contact p where p.user.id = :user_id")
     List<Contact> findAllUserContacts(@Param("user_id") Long id);
+
+    List<Contact> findByNameContainingIgnoreCase(String name);
+
+    List<Contact> findBySurnameContainingIgnoreCase(String surname);
+
+    List<Contact> findByMobilePhoneContainingIgnoreCase(String MobilePhone);
+
+    List<Contact> findByHomePhoneContainingIgnoreCase(String HomePhone);
 }

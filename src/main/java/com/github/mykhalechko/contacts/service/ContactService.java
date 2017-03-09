@@ -11,6 +11,8 @@ public interface ContactService {
 
     List<Contact> findAllUserContacts(Long id);
 
+    List<Contact> searchContact(String search);
+
     Contact findById(Long id);
 
     Contact create(Contact contact);

@@ -30,6 +30,17 @@ public class ContactController {
     public String listContacts(Model model) {
         List<Contact> contacts = this.contactService.findAllUserContacts(userService.getAuthenticationUser().getId());
         model.addAttribute("listContacts", contacts);
+        model.addAttribute("searchString", "");
+        return "contacts";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String searchContact(@ModelAttribute("searchString") String searchString, Model model) {
+
+        List<Contact> contacts = this.contactService.searchContact(searchString);
+        model.addAttribute("listContacts", contacts);
+        model.addAttribute("searchString", "");
+
         return "contacts";
     }
 
