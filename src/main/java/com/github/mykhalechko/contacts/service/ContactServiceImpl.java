@@ -23,19 +23,15 @@ public class ContactServiceImpl implements ContactService {
     }
 
     private void sortContacts(List<Contact> contacts) {
-        // TODO: 08.03.2017 use java8
-        contacts.sort(new Comparator<Contact>() {
-            @Override
-            public int compare(Contact p1, Contact p2) {
-                String ContactSurname1 = p1.getSurname().toUpperCase();
-                String ContactSurname2 = p2.getSurname().toUpperCase();
+        contacts.sort((p1, p2) -> {
+            String ContactSurname1 = p1.getSurname().toUpperCase();
+            String ContactSurname2 = p2.getSurname().toUpperCase();
 
-                //ascending order
-                return ContactSurname1.compareTo(ContactSurname2);
+            //ascending order
+            return ContactSurname1.compareTo(ContactSurname2);
 
-                //descending order
-                //return ContactName2.compareTo(ContactName1);
-            }
+            //descending order
+            //return ContactName2.compareTo(ContactName1);
         });
     }
 
