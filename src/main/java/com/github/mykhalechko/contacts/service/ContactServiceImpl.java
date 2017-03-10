@@ -5,7 +5,9 @@ import com.github.mykhalechko.contacts.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 @Service
 public class ContactServiceImpl implements ContactService {
@@ -22,14 +24,14 @@ public class ContactServiceImpl implements ContactService {
 
     private void sortContacts(List<Contact> contacts) {
         // TODO: 08.03.2017 use java8
-        Collections.sort(contacts, new Comparator<Contact>() {
+        contacts.sort(new Comparator<Contact>() {
             @Override
             public int compare(Contact p1, Contact p2) {
-                String ContactName1 = p1.getName().toUpperCase();
-                String ContactName2 = p2.getName().toUpperCase();
+                String ContactSurname1 = p1.getSurname().toUpperCase();
+                String ContactSurname2 = p2.getSurname().toUpperCase();
 
                 //ascending order
-                return ContactName1.compareTo(ContactName2);
+                return ContactSurname1.compareTo(ContactSurname2);
 
                 //descending order
                 //return ContactName2.compareTo(ContactName1);
@@ -45,15 +47,9 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public List<Contact> searchContact(String search) {
+    public List<Contact> searchContacts(Long id, String name, String surname, String mobilePhone, String homePhone) {
 
-        Set<Contact> contactSet = new LinkedHashSet<>();
-        contactSet.addAll(contactRepository.findByNameContainingIgnoreCase(search));
-        contactSet.addAll(contactRepository.findBySurnameContainingIgnoreCase(search));
-        contactSet.addAll(contactRepository.findByMobilePhoneContainingIgnoreCase(search));
-        contactSet.addAll(contactRepository.findByHomePhoneContainingIgnoreCase(search));
-
-        List<Contact> contacts = new ArrayList<>(contactSet);
+        List<Contact> contacts = this.contactRepository.searchContacts(id, name, surname, mobilePhone, homePhone);
         sortContacts(contacts);
         return contacts;
     }

@@ -2,12 +2,14 @@ package com.github.mykhalechko.contacts.controller;
 
 
 import com.github.mykhalechko.contacts.entity.Contact;
+import com.github.mykhalechko.contacts.repository.ContactRepository;
 import com.github.mykhalechko.contacts.service.ContactService;
 import com.github.mykhalechko.contacts.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +39,8 @@ public class ContactController {
     @RequestMapping(method = RequestMethod.POST)
     public String searchContact(@ModelAttribute("searchString") String searchString, Model model) {
 
-        List<Contact> contacts = this.contactService.searchContact(searchString);
+        List<Contact> contacts = this.contactService.searchContacts(
+                userService.getAuthenticationUser().getId(), searchString, searchString, searchString, searchString);
         model.addAttribute("listContacts", contacts);
         model.addAttribute("searchString", "");
 
