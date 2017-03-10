@@ -31,7 +31,7 @@
                            id="surname"
                            name="surname"
                            placeholder="Фамилия"
-                           th:required="required"/>
+                           />
                     <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Incorrect surname</p>
                 </div>
             </div>
@@ -43,8 +43,7 @@
                            th:field="*{name}"
                            id="name"
                            placeholder="Имя"
-                           name="name"
-                           th:required="required"/>
+                           name="name">
                     <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect name</p>
                 </div>
             </div>
@@ -54,8 +53,7 @@
                     <input type="text"
                            class="form-control"
                            th:field="*{patronymic}"
-                           id="patronymic" placeholder="Отчество" name="patronymic"
-                           th:required="required"/>
+                           id="patronymic" placeholder="Отчество" name="patronymic"/>
                     <p th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}">Incorrect patronymic</p>
                 </div>
             </div>
@@ -71,8 +69,7 @@
                                name="mobilePhone"
                                maxlength="12"
                                aria-describedby="sizing-addon1" size="12"
-                               placeholder="380"
-                               th:required="required"/>
+                               placeholder="380"/>
                     </div>
                     <p th:if="${#fields.hasErrors('mobilePhone')}" th:errors="*{mobilePhone}">
                         Incorrect mobilePhone
