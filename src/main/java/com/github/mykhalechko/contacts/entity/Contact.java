@@ -31,13 +31,19 @@ public class Contact implements Serializable {
 
     @Column(name = "mobilePhone")
     @NotEmpty(message = "{contact.error.mobilePhoneRequired}")
-    @Pattern(regexp = "[0-9]+", message = "{contact.error.mobilePhoneRegexp}")
-    @Size(min = 12, max = 12, message = "{contact.error.mobilePhoneLength}")
+//    ^ - begin string
+//    [0-9] - numbers
+//    {12}  - size
+//    $ - end string
+//    | - or
+//    ^$- empty string
+    @Pattern(regexp = "^[0-9]{12}$|^$", message = "{contact.error.mobilePhoneRegexp}")
+//    @Size(min = 12, max = 12, message = "{contact.error.mobilePhoneLength}")
     private String mobilePhone;
 
     @Column(name = "homePhone")
-    @Pattern(regexp = "[0-9]+", message = "{contact.error.homePhoneRegexp}")
-    @Size(min = 12, max = 12, message = "{contact.error.homePhoneLength}")
+    @Pattern(regexp = "^[0-9]{12}$|^$", message = "{contact.error.homePhoneRegexp}")
+//    @Size(min = 12, max = 12, message = "{contact.error.homePhoneLength}")
     private String homePhone;
     @Column(name = "address")
     private String address;
