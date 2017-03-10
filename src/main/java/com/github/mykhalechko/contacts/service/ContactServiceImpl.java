@@ -5,8 +5,6 @@ import com.github.mykhalechko.contacts.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -49,7 +47,6 @@ public class ContactServiceImpl implements ContactService {
         sortContacts(contacts);
         return contacts;
     }
-
 
     @Override
     public Contact findById(Long id) {
