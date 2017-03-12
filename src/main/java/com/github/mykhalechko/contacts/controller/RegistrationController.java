@@ -32,9 +32,9 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String getRegistration(@ModelAttribute("registrationForm") @Valid User registrationForm,
-                                  BindingResult bindingResult,
-                                  Model model) {
+    public String postRegistration(@ModelAttribute("registrationForm") @Valid User registrationForm,
+                                   BindingResult bindingResult,
+                                   Model model) {
         userValidator.validate(registrationForm, bindingResult);
         if (bindingResult.hasErrors()) {
             return "registration";
