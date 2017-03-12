@@ -26,15 +26,15 @@ public class RegistrationController {
     private UserValidator userValidator;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registration(Model model) {
+    public String getRegistration(Model model) {
         model.addAttribute("registrationForm", new User());
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("registrationForm") @Valid User registrationForm,
-                               BindingResult bindingResult,
-                               Model model) {
+    public String getRegistration(@ModelAttribute("registrationForm") @Valid User registrationForm,
+                                  BindingResult bindingResult,
+                                  Model model) {
         userValidator.validate(registrationForm, bindingResult);
         if (bindingResult.hasErrors()) {
             return "registration";
