@@ -3,6 +3,7 @@ package com.github.mykhalechko.contacts.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -13,9 +14,8 @@ import java.io.Serializable;
 
 //Lombok annotations getters, setters, toString and other methods
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-
+@AllArgsConstructor
 @Entity
 @Table(name = "contacts")
 public class Contact implements Serializable {
