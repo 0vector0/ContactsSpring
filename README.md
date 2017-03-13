@@ -1,3 +1,5 @@
+java -jar contacts-0.0.1-SNAPSHOT.jar --spring.config.location=config.properties
+
 # Contacts
 Project for Lardi (Spring Boot)
 
