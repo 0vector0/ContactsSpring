@@ -32,11 +32,11 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/contacts">Контакты</a></li>
-                    <li><a href="#about">О проекте</a></li>
+                    <li><a href="/about">О проекте</a></li>
                 </ul>
                 <ul sec:authorize="isAuthenticated()" class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="user" th:href="@{/user}">
+                        <a href="user" th:href="@{/contacts}">
                             <span th:text="'Привет, ' + ${#authentication.name} + '!'"/>
                         </a>
                     </li>
