@@ -2,7 +2,6 @@ package com.github.mykhalechko.contacts.controller;
 
 import com.github.mykhalechko.contacts.entity.Contact;
 import com.github.mykhalechko.contacts.entity.User;
-import com.github.mykhalechko.contacts.repository.ContactRepository;
 import com.github.mykhalechko.contacts.service.ContactService;
 import com.github.mykhalechko.contacts.service.UserService;
 import org.junit.Before;
