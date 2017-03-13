@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml"
       layout:decorator="layout">
 <head>
     <title>Телефонная книга</title>
@@ -15,7 +15,7 @@
                 <h2>“Телефонная книга”</h2>
                 <h3>Project for Lardi (Spring Boot)</h3>
                 <p class="lead"> This is a service to create and manage contacts.</p>
-                <p>
+                <p sec:authorize="isAnonymous()">
                     <a class="btn btn-lg btn-default"
                        href="/login" role="button">Войти</a>
                     <a class="btn btn-lg btn-default"

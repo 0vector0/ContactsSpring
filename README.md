@@ -1,6 +1,5 @@
 # Тестовое задание “Телефонная книга”
 
-
 В проекте используются 
 - Spring Boot, Spring MVC, Spring Data, Spring Security
 - Thymeleaf
