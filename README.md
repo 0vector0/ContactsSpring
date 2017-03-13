@@ -1,3 +1,13 @@
+# Тестовое задание “Телефонная книга”
+
+
+В проекте используются Spring Boot, Spring Data, Spring Security
+В качестве базы данных по умолчанию используется PostgreSQL но при помощи конфигурационого файла можно сменить на MySQL
+
+Пример конфигурационного файла
+
+
+
 java -jar contacts-0.0.1-SNAPSHOT.jar --spring.config.location=config.properties
 
 # Contacts
