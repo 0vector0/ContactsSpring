@@ -4,7 +4,6 @@
 
 <head>
     <title>Добавить контакт</title>
-    <link rel="stylesheet" th:src="@{/css/contact.css}"/>
 </head>
 <body>
 
@@ -63,7 +62,7 @@
                                maxlength="12"
                                aria-describedby="sizing-addon1" size="12"
                                placeholder="380"
-                               />
+                        />
                     </div>
                     <p th:if="${#fields.hasErrors('mobilePhone')}" th:errors="*{mobilePhone}">
                         Incorrect mobilePhone

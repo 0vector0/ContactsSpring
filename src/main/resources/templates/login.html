@@ -9,9 +9,9 @@
 <body>
 <section layout:fragment="content">
     <div class="container">
-        <div class="col-md-3">
+        <div class="col-md-2">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div th:if="${logout}" class="alert alert-info" role="alert">Вы успешно вышли</div>
             <div th:if="${error}" class="alert alert-danger" role="alert">Некорректные имя пользователя или пароль</div>
             <form method="post" th:action="@{/login}" class="form-signin">
@@ -34,12 +34,12 @@
                        placeholder="Пароль"
                        name="password"
                        th:required="required"/>
-                <button class="btn btn-lg btn-default  btn-block" type="submit">Войти</button>
+                <button class="btn btn-lg btn-default btn-block" type="submit">Войти</button>
                 <a class="btn btn-lg btn-default btn-block"
                    href="/registration" role="button">Создать нового пользователя</a>
             </form>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
         </div>
     </div>
 </section>
