@@ -43,7 +43,7 @@
                            th:field="*{name}"
                            id="name"
                            placeholder="Имя"
-                           name="name">
+                           name="name"/>
                     <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect name</p>
                 </div>
             </div>
