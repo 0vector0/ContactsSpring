@@ -147,8 +147,8 @@ public class ContactControllerTest {
         String surname = "surname";
         String name = "name";
         String patronymic = "patronymic";
-        String mobilePhone = "123456789101";
-        String homePhone = "123456789101";
+        String mobilePhone = "380962650543";
+        String homePhone = "380441234567";
         String address = "address";
         String email = "email@email.com";
 
