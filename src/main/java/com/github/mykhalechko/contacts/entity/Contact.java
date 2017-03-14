@@ -3,7 +3,6 @@ package com.github.mykhalechko.contacts.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -45,12 +44,12 @@ public class Contact implements Serializable {
 //    $ - end string
 //    | - or
 //    ^$- empty string
-    @Pattern(regexp = "^[0-9]{12}$|^$", message = "{contact.error.mobilePhoneRegexp}")
+    @Pattern(regexp = "^380[0-9]{9}$|^$", message = "{contact.error.mobilePhoneRegexp}")
 //    @Size(min = 12, max = 12, message = "{contact.error.mobilePhoneLength}")
     private String mobilePhone;
 
     @Column(name = "homePhone")
-    @Pattern(regexp = "^[0-9]{12}$|^$", message = "{contact.error.homePhoneRegexp}")
+    @Pattern(regexp = "^^380[0-9]{9}$|^$", message = "{contact.error.homePhoneRegexp}")
 //    @Size(min = 12, max = 12, message = "{contact.error.homePhoneLength}")
     private String homePhone;
     @Column(name = "address")
