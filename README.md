@@ -1,4 +1,4 @@
-# Тестовое задание “Телефонная книга”
+# “Телефонная книга”
 
 В проекте используются 
 - Spring Boot, Spring MVC, Spring Data, Spring Security
@@ -81,16 +81,3 @@ INSERT INTO roles (id, name) VALUES (2, 'ROLE_USER');
 ```
 java -jar contacts-0.0.1-SNAPSHOT.jar --spring.config.location=config.properties
 ```
-
-Приложение залито на **Heroku** и демо доступ доступен по ссылке [https://lardicontacts.herokuapp.com/](https://lardicontacts.herokuapp.com/ "https://lardicontacts.herokuapp.com/").
-
-```
-login : username
-password : password
-```
-
-Полный текст задания доступен в файле [TODO.MD](https://github.com/0vector0/LardiContacts/blob/master/TODO.md "TODO.MD").
-
-
-
-
